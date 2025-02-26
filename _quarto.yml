@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Gapminder Analysis"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Life Expectancy and GDP per Capita"
+        href: life-gdp.qmd
+      - text: "Life Expectancy and Population"
+        href: life-population.qmd
+      - text: "Country Analysis"
+        href: country.qmd
+
+format:
+  html:
+    theme:
+      - lux
+      - brand
+    css: styles.css
+    toc: true
+
+execute: 
+  echo: false
+
+
+
+
+

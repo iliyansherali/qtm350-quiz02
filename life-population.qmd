@@ -1,0 +1,30 @@
+---
+title: "Life Expectancy and Population"
+---
+
+This page explores the relationship between life expectancy and population over time. It examines how population growth correlates with life expectancy in different years.
+
+## Visualization
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+gapminder = pd.read_csv("gapminder.csv")
+
+# Plot Population vs Life Expectancy
+plt.figure(figsize=(10,6))
+for year in [1952, 1980, 2007]:
+    subset = gapminder[gapminder["year"] == year]
+    plt.scatter(subset["population_millions"], subset["life_expectancy"], label=f"Year {year}", alpha=0.7)
+
+plt.xscale("log")
+plt.xlabel("Population (millions, log scale)")
+plt.ylabel("Life Expectancy")
+plt.legend()
+plt.title("Life Expectancy vs Population Over Time")
+plt.show()
+```
+
+

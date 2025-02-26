@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "create-dataset.html",
+    "href": "create-dataset.html",
+    "title": "Create the Gapminder dataset",
+    "section": "",
+    "text": "country continent  year  life_expectancy  population_millions  \\\n0  Afghanistan      Asia  1952           28.801             8.425333   \n1  Afghanistan      Asia  1957           30.332             9.240934   \n2  Afghanistan      Asia  1962           31.997            10.267083   \n\n   gdp_per_capita  \n0      779.445314  \n1      820.853030  \n2      853.100710"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "life-gdp.html",
+    "href": "life-gdp.html",
+    "title": "Life Expectancy and GDP per Capita",
+    "section": "",
+    "text": "This page explores the relationship between life expectancy and GDP per capita over time. The analysis is based on data from multiple countries and years, demonstrating how economic growth impacts health outcomes."
+  },
+  {
+    "objectID": "life-gdp.html#visualization",
+    "href": "life-gdp.html#visualization",
+    "title": "Life Expectancy and GDP per Capita",
+    "section": "Visualization",
+    "text": "Visualization"
+  },
+  {
+    "objectID": "country.html",
+    "href": "country.html",
+    "title": "Country Analysis",
+    "section": "",
+    "text": "This page explores how life expectancy, GDP per capita, and population have changed over time for a selected country. The analysis visualizes trends and highlights key insights."
+  },
+  {
+    "objectID": "country.html#visualization",
+    "href": "country.html#visualization",
+    "title": "Country Analysis",
+    "section": "Visualization",
+    "text": "Visualization"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "QTM 350 Quiz 02",
+    "section": "",
+    "text": "Welcome to the Gapminder dataset analysis! This dataset contains information on life expectancy, GDP per capita, and population across 142 countries from 1952 to 2007.\n\nPages:\n\nLife Expectancy and GDP per Capita\nLife Expectancy and Population\nCountry Analysis"
+  },
+  {
+    "objectID": "life-population.html",
+    "href": "life-population.html",
+    "title": "Life Expectancy and Population",
+    "section": "",
+    "text": "This page explores the relationship between life expectancy and population over time. It examines how population growth correlates with life expectancy in different years."
+  },
+  {
+    "objectID": "life-population.html#visualization",
+    "href": "life-population.html#visualization",
+    "title": "Life Expectancy and Population",
+    "section": "Visualization",
+    "text": "Visualization"
+  }
+]
