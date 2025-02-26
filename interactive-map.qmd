@@ -1,6 +1,5 @@
 ---
 title: "Interactive Map: Life Expectancy & GDP per Capita"
-format: html
 ---
 
 This interactive map visualizes **Life Expectancy** and **GDP per Capita** for different countries in 2007.
