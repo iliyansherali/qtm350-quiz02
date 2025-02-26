@@ -4,7 +4,7 @@
     "href": "create-dataset.html",
     "title": "Create the Gapminder dataset",
     "section": "",
-    "text": "country continent  year  life_expectancy  population_millions  \\\n0  Afghanistan      Asia  1952           28.801             8.425333   \n1  Afghanistan      Asia  1957           30.332             9.240934   \n2  Afghanistan      Asia  1962           31.997            10.267083   \n\n   gdp_per_capita  \n0      779.445314  \n1      820.853030  \n2      853.100710"
+    "text": "# Import necessary libraries\nimport pandas as pd\nfrom gapminder import gapminder\n\n# Rename 'lifeExp' to 'life_expectancy' and 'gdpPercap' to 'gdp_per_capita'\ngapminder = gapminder.rename(columns={'lifeExp': 'life_expectancy',\n                                      'pop': 'population_millions', \n                                      'gdpPercap': 'gdp_per_capita'})\n\n# Convert population to millions\ngapminder['population_millions'] = gapminder['population_millions'] / 1_000_000\n\n# Create a new pandas DataFrame from the modified gapminder data\ngapminder_df = pd.DataFrame(gapminder)\n\n# Save the DataFrame as a CSV file\ngapminder_df.to_csv('gapminder.csv', index=False)\n\n# Print the first 3 rows of the DataFrame\nprint(gapminder_df.head(3))\n\n       country continent  year  life_expectancy  population_millions  \\\n0  Afghanistan      Asia  1952           28.801             8.425333   \n1  Afghanistan      Asia  1957           30.332             9.240934   \n2  Afghanistan      Asia  1962           31.997            10.267083   \n\n   gdp_per_capita  \n0      779.445314  \n1      820.853030  \n2      853.100710"
   },
   {
     "objectID": "about.html",
@@ -25,7 +25,7 @@
     "href": "life-gdp.html#visualization",
     "title": "Life Expectancy and GDP per Capita",
     "section": "Visualization",
-    "text": "Visualization"
+    "text": "Visualization\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Plot GDP per capita vs Life Expectancy\nplt.figure(figsize=(10,6))\nfor year in [1952, 1980, 2007]:\n    subset = gapminder[gapminder[\"year\"] == year]\n    plt.scatter(subset[\"gdp_per_capita\"], subset[\"life_expectancy\"], label=f\"Year {year}\", alpha=0.7)\n\nplt.xscale(\"log\")\nplt.xlabel(\"GDP per Capita (log scale)\")\nplt.ylabel(\"Life Expectancy\")\nplt.legend()\nplt.title(\"Life Expectancy vs GDP per Capita Over Time\")\nplt.show()"
   },
   {
     "objectID": "country.html",
@@ -39,7 +39,7 @@
     "href": "country.html#visualization",
     "title": "Country Analysis",
     "section": "Visualization",
-    "text": "Visualization"
+    "text": "Visualization\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Select a country for analysis (change as needed)\ncountry = \"United States\"\ncountry_data = gapminder[gapminder[\"country\"] == country]\n\n# Create a plot\nfig, ax1 = plt.subplots(figsize=(10,6))\n\n# Plot life expectancy\nax1.plot(country_data[\"year\"], country_data[\"life_expectancy\"], label=\"Life Expectancy\", color=\"blue\", marker=\"o\")\nax1.set_ylabel(\"Life Expectancy (Years)\", color=\"blue\")\nax1.set_xlabel(\"Year\")\n\n# Create a second y-axis for GDP per capita\nax2 = ax1.twinx()\nax2.plot(country_data[\"year\"], country_data[\"gdp_per_capita\"], label=\"GDP per Capita\", color=\"green\", marker=\"s\")\nax2.set_ylabel(\"GDP per Capita\", color=\"green\")\n\nplt.title(f\"Life Expectancy and GDP per Capita in {country} (1952-2007)\")\nplt.show()"
   },
   {
     "objectID": "index.html",
@@ -60,6 +60,6 @@
     "href": "life-population.html#visualization",
     "title": "Life Expectancy and Population",
     "section": "Visualization",
-    "text": "Visualization"
+    "text": "Visualization\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Plot Population vs Life Expectancy\nplt.figure(figsize=(10,6))\nfor year in [1952, 1980, 2007]:\n    subset = gapminder[gapminder[\"year\"] == year]\n    plt.scatter(subset[\"population_millions\"], subset[\"life_expectancy\"], label=f\"Year {year}\", alpha=0.7)\n\nplt.xscale(\"log\")\nplt.xlabel(\"Population (millions, log scale)\")\nplt.ylabel(\"Life Expectancy\")\nplt.legend()\nplt.title(\"Life Expectancy vs Population Over Time\")\nplt.show()"
   }
 ]
