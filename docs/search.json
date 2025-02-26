@@ -14,18 +14,11 @@
     "text": "About this site"
   },
   {
-    "objectID": "life-gdp.html",
-    "href": "life-gdp.html",
-    "title": "Life Expectancy and GDP per Capita",
+    "objectID": "interactive-map.html",
+    "href": "interactive-map.html",
+    "title": "Interactive Map: Life Expectancy & GDP per Capita",
     "section": "",
-    "text": "This page explores the relationship between life expectancy and GDP per capita over time. The analysis is based on data from multiple countries and years, demonstrating how economic growth impacts health outcomes."
-  },
-  {
-    "objectID": "life-gdp.html#visualization",
-    "href": "life-gdp.html#visualization",
-    "title": "Life Expectancy and GDP per Capita",
-    "section": "Visualization",
-    "text": "Visualization\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Plot GDP per capita vs Life Expectancy\nplt.figure(figsize=(10,6))\nfor year in [1952, 1980, 2007]:\n    subset = gapminder[gapminder[\"year\"] == year]\n    plt.scatter(subset[\"gdp_per_capita\"], subset[\"life_expectancy\"], label=f\"Year {year}\", alpha=0.7)\n\nplt.xscale(\"log\")\nplt.xlabel(\"GDP per Capita (log scale)\")\nplt.ylabel(\"Life Expectancy\")\nplt.legend()\nplt.title(\"Life Expectancy vs GDP per Capita Over Time\")\nplt.show()"
+    "text": "This interactive map visualizes Life Expectancy and GDP per Capita for different countries in 2007.\n\nimport pandas as pd\nimport plotly.express as px\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Filter data for the latest year available\nlatest_year = gapminder[gapminder[\"year\"] == 2007]\n\n# Create an interactive choropleth map\nfig = px.choropleth(\n    latest_year,\n    locations=\"country\",\n    locationmode=\"country names\",\n    color=\"life_expectancy\",\n    hover_name=\"country\",\n    color_continuous_scale=\"Viridis\",\n    title=\"Life Expectancy in 2007\"\n)\n\n# Display the figure\nfig.show()"
   },
   {
     "objectID": "country.html",
@@ -42,11 +35,25 @@
     "text": "Visualization\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Select a country for analysis (change as needed)\ncountry = \"United States\"\ncountry_data = gapminder[gapminder[\"country\"] == country]\n\n# Create a plot\nfig, ax1 = plt.subplots(figsize=(10,6))\n\n# Plot life expectancy\nax1.plot(country_data[\"year\"], country_data[\"life_expectancy\"], label=\"Life Expectancy\", color=\"blue\", marker=\"o\")\nax1.set_ylabel(\"Life Expectancy (Years)\", color=\"blue\")\nax1.set_xlabel(\"Year\")\n\n# Create a second y-axis for GDP per capita\nax2 = ax1.twinx()\nax2.plot(country_data[\"year\"], country_data[\"gdp_per_capita\"], label=\"GDP per Capita\", color=\"green\", marker=\"s\")\nax2.set_ylabel(\"GDP per Capita\", color=\"green\")\n\nplt.title(f\"Life Expectancy and GDP per Capita in {country} (1952-2007)\")\nplt.show()"
   },
   {
+    "objectID": "life-gdp.html",
+    "href": "life-gdp.html",
+    "title": "Life Expectancy and GDP per Capita",
+    "section": "",
+    "text": "This page explores the relationship between life expectancy and GDP per capita over time. The analysis is based on data from multiple countries and years, demonstrating how economic growth impacts health outcomes."
+  },
+  {
+    "objectID": "life-gdp.html#visualization",
+    "href": "life-gdp.html#visualization",
+    "title": "Life Expectancy and GDP per Capita",
+    "section": "Visualization",
+    "text": "Visualization\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Plot GDP per capita vs Life Expectancy\nplt.figure(figsize=(10,6))\nfor year in [1952, 1980, 2007]:\n    subset = gapminder[gapminder[\"year\"] == year]\n    plt.scatter(subset[\"gdp_per_capita\"], subset[\"life_expectancy\"], label=f\"Year {year}\", alpha=0.7)\n\nplt.xscale(\"log\")\nplt.xlabel(\"GDP per Capita (log scale)\")\nplt.ylabel(\"Life Expectancy\")\nplt.legend()\nplt.title(\"Life Expectancy vs GDP per Capita Over Time\")\nplt.show()"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "QTM 350 Quiz 02",
     "section": "",
-    "text": "Welcome to the Gapminder dataset analysis! This dataset contains information on life expectancy, GDP per capita, and population across 142 countries from 1952 to 2007.\n\nPages:\n\nLife Expectancy and GDP per Capita\nLife Expectancy and Population\nCountry Analysis"
+    "text": "Welcome to the Gapminder dataset analysis! This dataset contains information on life expectancy, GDP per capita, and population across 142 countries from 1952 to 2007.\n\nPages:\n\nLife Expectancy and GDP per Capita\nLife Expectancy and Population\nCountry Analysis\nInteractive Map"
   },
   {
     "objectID": "life-population.html",

@@ -1,0 +1,32 @@
+---
+title: "Interactive Map: Life Expectancy & GDP per Capita"
+format: html
+---
+
+This interactive map visualizes **Life Expectancy** and **GDP per Capita** for different countries in 2007.
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Load dataset
+gapminder = pd.read_csv("gapminder.csv")
+
+# Filter data for the latest year available
+latest_year = gapminder[gapminder["year"] == 2007]
+
+# Create an interactive choropleth map
+fig = px.choropleth(
+    latest_year,
+    locations="country",
+    locationmode="country names",
+    color="life_expectancy",
+    hover_name="country",
+    color_continuous_scale="Viridis",
+    title="Life Expectancy in 2007"
+)
+
+# Display the figure
+fig.show()
+```
+

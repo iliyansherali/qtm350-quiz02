@@ -8,4 +8,6 @@ Welcome to the Gapminder dataset analysis! This dataset contains information on 
 - [Life Expectancy and GDP per Capita](life-gdp.qmd)
 - [Life Expectancy and Population](life-population.qmd)
 - [Country Analysis](country.qmd)
+- [Interactive Map](interactive-map.qmd)
+
 
